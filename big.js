@@ -10,12 +10,11 @@ Big.ROUND_DOWN = false
  * @param {Boolean} strict If set to true, the function requires the 'new' keyword parameters cannot be null.
  */
 function Big(value = null, accuracy = null, strict = false) {
-    strict = Boolean(strict)
     if (!(this instanceof Big)) {
         if (strict) {
             throw TypeError("Big constructor cannot be invoked without 'new'")
         }
-        return new Big(value, accuracy, strict)
+        return new Big(value, accuracy)
     }
     var accNull = false
     if (value == null) {
@@ -163,7 +162,7 @@ function Big(value = null, accuracy = null, strict = false) {
  * @param {Number} accuracy The accuracy of the number, in digits.
  * @param {Boolean} strict If set to true, the function requires the 'new' keyword parameters cannot be null.
  */
-function parseBig(value, accuracy, strict = false) {
+function parseBig(value, accuracy, strict) {
     return new Big(value, accuracy, strict)
 }
 
